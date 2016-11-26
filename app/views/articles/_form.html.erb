@@ -2,11 +2,11 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :body %>
+    <%= f.input :title, label: false, placeholder: "Article title" %>
+    <%= f.input :body, label: false, placeholder: "Body title" %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-success" %>
   </div>
 <% end %>

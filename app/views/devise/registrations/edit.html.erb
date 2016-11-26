@@ -5,22 +5,22 @@
 
   <div class="form-inputs">
     
-      <%= f.input :username, required: true, autofocus: false %>
-      <%= f.input :email, required: true, autofocus: true %>
-      <%= f.input :firstname, required: false, autofocus: false %>
-      <%= f.input :lastname, required: false %>
+      <%= f.input :username, required: true, autofocus: false, label: false, placeholder: "Set you username"  %>
+      <%= f.input :email, required: true, autofocus: true, label: false, placeholder: "Email"  %>
+      <%= f.input :firstname, required: false, autofocus: false, label: false, placeholder: "First name"  %>
+      <%= f.input :lastname, required: false, label: false, placeholder: "Last name"  %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
+    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true, label: false, placeholder: "Current password"  %>
+    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false, label: false, placeholder: "Password"  %>
+    <%= f.input :password_confirmation, required: false, label: false, placeholder: "Confirm you password"  %>
     
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "Update", class: "btn btn-primary" %>
   </div>
 <% end %>
 
