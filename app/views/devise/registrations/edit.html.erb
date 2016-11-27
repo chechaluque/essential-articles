@@ -10,10 +10,7 @@
       <%= f.input :firstname, required: false, autofocus: false, label: false, placeholder: "First name"  %>
       <%= f.input :lastname, required: false, label: false, placeholder: "Last name"  %>
       <%= f.input :image, as: :file %>  <%= image_tag @user.image.url(:thumb), class: "img-circle" %>
-<<<<<<< HEAD
-     
-=======
->>>>>>> paperclip
+
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
