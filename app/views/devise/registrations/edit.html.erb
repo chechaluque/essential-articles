@@ -10,7 +10,10 @@
       <%= f.input :firstname, required: false, autofocus: false, label: false, placeholder: "First name"  %>
       <%= f.input :lastname, required: false, label: false, placeholder: "Last name"  %>
       <%= f.input :image, as: :file %>  <%= image_tag @user.image.url(:thumb), class: "img-circle" %>
+<<<<<<< HEAD
      
+=======
+>>>>>>> paperclip
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -18,6 +21,7 @@
     <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true, label: false, placeholder: "Current password"  %>
     <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false, label: false, placeholder: "Password"  %>
     <%= f.input :password_confirmation, required: false, label: false, placeholder: "Confirm you password"  %>
+   
     
   </div>
 
