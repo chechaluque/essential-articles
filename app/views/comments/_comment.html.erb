@@ -1,11 +1,13 @@
+<div class="color round2">
 <div class="media">
     
     <div class="pull-left">
         
-        <strong><%= comment.user.username %></strong>
+        <strong>Comment by <%= comment.user.username %></strong>
         
        
     </div>
+    <br/>
     
     <div class="media-body">
         <p class="media-heading pull-right">
@@ -15,9 +17,19 @@
         <%= comment.body %>
        
     </div>
+    <dr/>
 </div>
+<br/>
+<% if can? :update, comment %>
 
+	<%= link_to "Edit Comment", edit_article_comment_path(comment.article, comment), class: "btn btn-info btn-xs round" %>
+	
+<% end %>
+	
+<% if can? :destroy, comment %>
 
-	<%= link_to "Edit", edit_article_comment_path(comment.article, comment) %>
+<%= link_to "Delete Comment", [comment.article, comment], method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs round" %>
 
-<%= link_to "Delete", [comment.article, comment], method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
+</div>
+<br/>

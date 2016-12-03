@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  load_and_authorize_resource param_method: :my_sanitizer
+  load_and_authorize_resource :through => :current_user
   
   def create
     @article = Article.find(params[:article_id])
@@ -10,7 +12,8 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to article_path(@article), notice: "Your comment has been saved."
     else
-      redirect_to 'new'
+      redirect_to @article
+      flash[:warning]= "Tehere was a problem saving your comment, Minimum length is 5 character adn the Max is 500."
   end
 end
   
@@ -36,6 +39,13 @@ end
     @comment.destroy
     redirect_to article_path(@article), notice: "Your comment has been deleted."
   end
+  
+   private
+
+  def my_sanitizer
+    params.require(:commet).permit(:body)
+  end
+
   
   
 end
